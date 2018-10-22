@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2018-10-22T09:28:59.173Z",
+    "end": "2018-10-22T09:29:18.257Z",
+    "duration": 19084,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 1,
+    "hasSkipped": true,
+    "passPercentClass": "danger",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "d292f0ae-c22b-4ddf-acc1-1d7bc7d152d2",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [
+      {
+        "title": "countries",
+        "fullTitle": "countries",
+        "timedOut": false,
+        "duration": 0,
+        "pass": false,
+        "fail": false,
+        "pending": false,
+        "code": "await driver.findElement(By.css('#app-countries')).click();",
+        "err": {},
+        "isRoot": true,
+        "uuid": "cc26acbb-a791-47cf-b9a2-f9660936abca",
+        "isHook": false,
+        "skipped": true
+      }
+    ],
+    "suites": [
+      {
+        "uuid": "cb12a50f-3cc1-44ce-bd2b-615ac1c2ac76",
+        "title": "Testing 7",
+        "fullFile": "C:\\Users\\lukas\\Desktop\\Testing-with-Selenium-WebDriver\\test\\test7.js",
+        "file": "\\test\\test7.js",
+        "beforeHooks": [
+          {
+            "title": "\"before each\" hook",
+            "fullTitle": "Testing 7 \"before each\" hook",
+            "timedOut": false,
+            "duration": 2423,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "driver = await new Builder().forBrowser('chrome').build();\ndriver.get('http://localhost/litecart/admin/login.php');",
+            "err": {},
+            "isRoot": false,
+            "uuid": "3d7ae9a4-9848-4461-8a56-251bdb767ae6",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [
+          {
+            "title": "\"after each\" hook",
+            "fullTitle": "Testing 7 \"after each\" hook",
+            "timedOut": false,
+            "duration": 1,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "// driver.quit();\nconsole.log('ssss');",
+            "err": {},
+            "isRoot": false,
+            "uuid": "8ec0a985-1001-4445-9f3c-fe5bdab94613",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "tests": [
+          {
+            "title": "login",
+            "fullTitle": "Testing 7 login",
+            "timedOut": false,
+            "duration": 16648,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "//log to admin panel\n   await driver.findElement(By.css('#box-login > form > div.content > div:nth-child(2) > div > input')).sendKeys('admin');\n   await driver.findElement(By.css('#box-login > form > div.content > div:nth-child(3) > div > input')).sendKeys('admin');\n   await driver.findElement(By.css('#box-login > form > div.footer > button')).click();\nawait driver.wait(until.titleIs('http://localhost/litecart/admin/'), 5000).catch(function(){\n    console.log('Loggin message');\n});\n//check option Apperance and its children\nawait driver.findElement(By.css('#app-appearance > a > span.name')).click();\nawait driver.wait(until.titleIs('http://localhost/litecart/admin/?app=appearance&doc=template'), 3000).catch(function(){\n    console.log('Apperance');\n});\nawait driver.findElement(By.css('#doc-template')).click();\nawait driver.findElement(By.css('#doc-logotype')).click();\n//check option Catalog and its children\nawait driver.findElement(By.css('#app-catalog > a > span.name')).click();\nawait driver.wait(until.titleContains('catalog'), 3000).catch(function(){\n    console.log('Catalog');\n});\nawait driver.findElement(By.css('#doc-product_groups')).click();\nawait driver.findElement(By.css('#doc-option_groups')).click();\nawait driver.findElement(By.css('#doc-manufacturers')).click();\nawait driver.findElement(By.css('#doc-suppliers')).click();\nawait driver.findElement(By.css('#doc-delivery_statuses')).click();\nawait driver.findElement(By.css('#doc-sold_out_statuses')).click();\nawait driver.findElement(By.css('#doc-quantity_units')).click();\nawait driver.findElement(By.css('#doc-csv')).click();\n   //check Countries ans its children\n\n   it('countries', async function(){\nawait driver.findElement(By.css('#app-countries')).click();\n\n   })",
+            "err": {},
+            "isRoot": false,
+            "uuid": "fe57a48c-fe19-401b-924b-37445599486a",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "fe57a48c-fe19-401b-924b-37445599486a"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 16648,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 50000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [
+      "cc26acbb-a791-47cf-b9a2-f9660936abca"
+    ],
+    "duration": null,
+    "root": true,
+    "rootEmpty": false,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2018
+}
