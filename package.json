@@ -4,7 +4,8 @@
   "description": "My first attemp",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "desc":"mocha --reporter mochawesome --reporter-options autoOpen=true"
   },
   "author": "Lucas",
   "license": "ISC",

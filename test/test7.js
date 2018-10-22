@@ -23,19 +23,19 @@ it('login', async function(){
    await driver.findElement(By.css('#box-login > form > div.content > div:nth-child(2) > div > input')).sendKeys('admin');
    await driver.findElement(By.css('#box-login > form > div.content > div:nth-child(3) > div > input')).sendKeys('admin');
    await driver.findElement(By.css('#box-login > form > div.footer > button')).click();
-    await driver.wait(until.titleIs('http://localhost/litecart/admin/'), 5000).catch(function(){
+    await driver.wait(until.urlIs('http://localhost/litecart/admin/'), 5000).catch(function(){
         console.log('Loggin message');
     });
     //check option Apperance and its children
     await driver.findElement(By.css('#app-appearance > a > span.name')).click();
-    await driver.wait(until.titleIs('http://localhost/litecart/admin/?app=appearance&doc=template'), 3000).catch(function(){
+    await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=appearance&doc=template'), 3000).catch(function(){
         console.log('Apperance');
     });
     await driver.findElement(By.css('#doc-template')).click();
     await driver.findElement(By.css('#doc-logotype')).click();
     //check option Catalog and its children
     await driver.findElement(By.css('#app-catalog > a > span.name')).click();
-    await driver.wait(until.titleContains('catalog'), 3000).catch(function(){
+    await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=catalog&doc=catalog'), 3000).catch(function(){
         console.log('Catalog');
     });
     await driver.findElement(By.css('#doc-product_groups')).click();
@@ -52,7 +52,7 @@ it('login', async function(){
     await driver.findElement(By.css('#app-currencies')).click();
     //check Coustomers and its children
     await driver.findElement(By.css('#app-customers')).click();
-    await driver.wait(until.titleContains('customers'), 3000).catch(function(){
+    await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=customers&doc=customers'), 3000).catch(function(){
         console.log('Customers');
     });
     await driver.findElement(By.css('#doc-customers')).click();
@@ -62,14 +62,14 @@ it('login', async function(){
     await driver.findElement(By.css('#app-geo_zones')).click();
     //check Languages and its children
     await driver.findElement(By.css('#app-languages')).click();
-    await driver.wait(until.titleContains('languages'), 3000).catch(function(){
-        console.log('Customers');
+    await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=languages&doc=languages'), 3000).catch(function(){
+        console.log('Languages');
     });
     await driver.findElement(By.css('#doc-languages')).click();
     await driver.findElement(By.css('#doc-storage_encoding')).click();
     //check Modules and its children
     await driver.findElement(By.css('#app-modules')).click();
-    await driver.wait(until.titleContains('modules'), 3000).catch(function(){
+    await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=modules&doc=customer'), 3000).catch(function(){
         console.log('Modules');
     });
     await driver.findElement(By.css('#doc-customer')).click();
@@ -80,21 +80,21 @@ it('login', async function(){
     await driver.findElement(By.css('#doc-jobs')).click();
     //check Orders and its children
     await driver.findElement(By.css('#app-orders')).click();
-    await driver.wait(until.titleContains('orders'), 3000).catch(function(){
+    await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=orders&doc=orders'), 3000).catch(function(){
         console.log('Orders');
     });
     await driver.findElement(By.css('#doc-orders')).click();
     await driver.findElement(By.css('#doc-order_statuses')).click();
      //check Pages and its children
      await driver.findElement(By.css('#app-pages')).click();
-     await driver.wait(until.titleContains('pages'), 3000).catch(function(){
+     await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=pages&doc=pages'), 3000).catch(function(){
          console.log('Pages');
      });
      await driver.findElement(By.css('#doc-pages')).click();
      await driver.findElement(By.css('#doc-csv')).click();
       //check Reports and its children
       await driver.findElement(By.css('#app-reports')).click();
-      await driver.wait(until.titleContains('reports'), 3000).catch(function(){
+      await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=reports&doc=monthly_sales'), 3000).catch(function(){
           console.log('Reports');
       });
       await driver.findElement(By.css('#doc-monthly_sales')).click();
@@ -102,7 +102,7 @@ it('login', async function(){
       await driver.findElement(By.css('#doc-most_shopping_customers')).click();
       //check Settings and its children
       await driver.findElement(By.css('#app-settings')).click();
-      await driver.wait(until.titleContains('settings'), 3000).catch(function(){
+      await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=settings&doc=store_info'), 3000).catch(function(){
           console.log('Settings');
       });
       await driver.findElement(By.css('#doc-store_info')).click();
@@ -115,14 +115,14 @@ it('login', async function(){
       await driver.findElement(By.css('#app-slides')).click();
       //check Tax and its children
       await driver.findElement(By.css('#app-tax')).click();
-      await driver.wait(until.titleContains('tax'), 3000).catch(function(){
+      await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=tax&doc=tax_rates'), 3000).catch(function(){
           console.log('TAX');
       });
       await driver.findElement(By.css('#doc-tax_rates')).click();
       await driver.findElement(By.css('#doc-tax_classes')).click();
        //check Translations and its children
        await driver.findElement(By.css('#app-translations')).click();
-       await driver.wait(until.titleContains('translations'), 3000).catch(function(){
+       await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=translations&doc=search'), 3000).catch(function(){
            console.log('Translations');
        });
        await driver.findElement(By.css('#app-users')).click();

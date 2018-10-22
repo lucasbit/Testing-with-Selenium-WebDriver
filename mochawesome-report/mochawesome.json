@@ -5,46 +5,30 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2018-10-22T09:28:59.173Z",
-    "end": "2018-10-22T09:29:18.257Z",
-    "duration": 19084,
-    "testsRegistered": 2,
-    "passPercent": 50,
+    "start": "2018-10-22T15:20:14.783Z",
+    "end": "2018-10-22T15:20:48.622Z",
+    "duration": 33839,
+    "testsRegistered": 1,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
-    "skipped": 1,
-    "hasSkipped": true,
-    "passPercentClass": "danger",
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "d292f0ae-c22b-4ddf-acc1-1d7bc7d152d2",
+    "uuid": "76368b05-868c-419e-a630-5226079a18e1",
     "title": "",
     "fullFile": "",
     "file": "",
     "beforeHooks": [],
     "afterHooks": [],
-    "tests": [
-      {
-        "title": "countries",
-        "fullTitle": "countries",
-        "timedOut": false,
-        "duration": 0,
-        "pass": false,
-        "fail": false,
-        "pending": false,
-        "code": "await driver.findElement(By.css('#app-countries')).click();",
-        "err": {},
-        "isRoot": true,
-        "uuid": "cc26acbb-a791-47cf-b9a2-f9660936abca",
-        "isHook": false,
-        "skipped": true
-      }
-    ],
+    "tests": [],
     "suites": [
       {
-        "uuid": "cb12a50f-3cc1-44ce-bd2b-615ac1c2ac76",
+        "uuid": "79ffaab8-9179-41c6-a641-b7bc9f39a4e9",
         "title": "Testing 7",
         "fullFile": "C:\\Users\\lukas\\Desktop\\Testing-with-Selenium-WebDriver\\test\\test7.js",
         "file": "\\test\\test7.js",
@@ -53,14 +37,14 @@
             "title": "\"before each\" hook",
             "fullTitle": "Testing 7 \"before each\" hook",
             "timedOut": false,
-            "duration": 2423,
+            "duration": 2461,
             "pass": false,
             "fail": false,
             "pending": false,
             "code": "driver = await new Builder().forBrowser('chrome').build();\ndriver.get('http://localhost/litecart/admin/login.php');",
             "err": {},
             "isRoot": false,
-            "uuid": "3d7ae9a4-9848-4461-8a56-251bdb767ae6",
+            "uuid": "d9834514-04bf-453b-bc5f-617a952acccc",
             "isHook": true,
             "skipped": false
           }
@@ -77,7 +61,7 @@
             "code": "// driver.quit();\nconsole.log('ssss');",
             "err": {},
             "isRoot": false,
-            "uuid": "8ec0a985-1001-4445-9f3c-fe5bdab94613",
+            "uuid": "96666bf7-c8b7-4cec-a3e1-013a93c95580",
             "isHook": true,
             "skipped": false
           }
@@ -87,42 +71,40 @@
             "title": "login",
             "fullTitle": "Testing 7 login",
             "timedOut": false,
-            "duration": 16648,
+            "duration": 31362,
             "state": "passed",
             "speed": "slow",
             "pass": true,
             "fail": false,
             "pending": false,
-            "code": "//log to admin panel\n   await driver.findElement(By.css('#box-login > form > div.content > div:nth-child(2) > div > input')).sendKeys('admin');\n   await driver.findElement(By.css('#box-login > form > div.content > div:nth-child(3) > div > input')).sendKeys('admin');\n   await driver.findElement(By.css('#box-login > form > div.footer > button')).click();\nawait driver.wait(until.titleIs('http://localhost/litecart/admin/'), 5000).catch(function(){\n    console.log('Loggin message');\n});\n//check option Apperance and its children\nawait driver.findElement(By.css('#app-appearance > a > span.name')).click();\nawait driver.wait(until.titleIs('http://localhost/litecart/admin/?app=appearance&doc=template'), 3000).catch(function(){\n    console.log('Apperance');\n});\nawait driver.findElement(By.css('#doc-template')).click();\nawait driver.findElement(By.css('#doc-logotype')).click();\n//check option Catalog and its children\nawait driver.findElement(By.css('#app-catalog > a > span.name')).click();\nawait driver.wait(until.titleContains('catalog'), 3000).catch(function(){\n    console.log('Catalog');\n});\nawait driver.findElement(By.css('#doc-product_groups')).click();\nawait driver.findElement(By.css('#doc-option_groups')).click();\nawait driver.findElement(By.css('#doc-manufacturers')).click();\nawait driver.findElement(By.css('#doc-suppliers')).click();\nawait driver.findElement(By.css('#doc-delivery_statuses')).click();\nawait driver.findElement(By.css('#doc-sold_out_statuses')).click();\nawait driver.findElement(By.css('#doc-quantity_units')).click();\nawait driver.findElement(By.css('#doc-csv')).click();\n   //check Countries ans its children\n\n   it('countries', async function(){\nawait driver.findElement(By.css('#app-countries')).click();\n\n   })",
+            "code": "//log to admin panel\n   await driver.findElement(By.css('#box-login > form > div.content > div:nth-child(2) > div > input')).sendKeys('admin');\n   await driver.findElement(By.css('#box-login > form > div.content > div:nth-child(3) > div > input')).sendKeys('admin');\n   await driver.findElement(By.css('#box-login > form > div.footer > button')).click();\nawait driver.wait(until.urlIs('http://localhost/litecart/admin/'), 5000).catch(function(){\n    console.log('Loggin message');\n});\n//check option Apperance and its children\nawait driver.findElement(By.css('#app-appearance > a > span.name')).click();\nawait driver.wait(until.urlIs('http://localhost/litecart/admin/?app=appearance&doc=template'), 3000).catch(function(){\n    console.log('Apperance');\n});\nawait driver.findElement(By.css('#doc-template')).click();\nawait driver.findElement(By.css('#doc-logotype')).click();\n//check option Catalog and its children\nawait driver.findElement(By.css('#app-catalog > a > span.name')).click();\nawait driver.wait(until.urlIs('http://localhost/litecart/admin/?app=catalog&doc=catalog'), 3000).catch(function(){\n    console.log('Catalog');\n});\nawait driver.findElement(By.css('#doc-product_groups')).click();\nawait driver.findElement(By.css('#doc-option_groups')).click();\nawait driver.findElement(By.css('#doc-manufacturers')).click();\nawait driver.findElement(By.css('#doc-suppliers')).click();\nawait driver.findElement(By.css('#doc-delivery_statuses')).click();\nawait driver.findElement(By.css('#doc-sold_out_statuses')).click();\nawait driver.findElement(By.css('#doc-quantity_units')).click();\nawait driver.findElement(By.css('#doc-csv')).click();\n   //check Countries and its children\nawait driver.findElement(By.css('#app-countries')).click();\n//check Countries and its children\nawait driver.findElement(By.css('#app-currencies')).click();\n//check Coustomers and its children\nawait driver.findElement(By.css('#app-customers')).click();\nawait driver.wait(until.urlIs('http://localhost/litecart/admin/?app=customers&doc=customers'), 3000).catch(function(){\n    console.log('Customers');\n});\nawait driver.findElement(By.css('#doc-customers')).click();\nawait driver.findElement(By.css('#doc-csv')).click();\nawait driver.findElement(By.css('#doc-newsletter')).click();\n//check GeoZones and its children\nawait driver.findElement(By.css('#app-geo_zones')).click();\n//check Languages and its children\nawait driver.findElement(By.css('#app-languages')).click();\nawait driver.wait(until.urlIs('http://localhost/litecart/admin/?app=languages&doc=languages'), 3000).catch(function(){\n    console.log('Languages');\n});\nawait driver.findElement(By.css('#doc-languages')).click();\nawait driver.findElement(By.css('#doc-storage_encoding')).click();\n//check Modules and its children\nawait driver.findElement(By.css('#app-modules')).click();\nawait driver.wait(until.urlIs('http://localhost/litecart/admin/?app=modules&doc=customer'), 3000).catch(function(){\n    console.log('Modules');\n});\nawait driver.findElement(By.css('#doc-customer')).click();\nawait driver.findElement(By.css('#doc-shipping')).click();\nawait driver.findElement(By.css('#doc-payment')).click();\nawait driver.findElement(By.css('#doc-order')).click();\nawait driver.findElement(By.css('#doc-order_total')).click();\nawait driver.findElement(By.css('#doc-jobs')).click();\n//check Orders and its children\nawait driver.findElement(By.css('#app-orders')).click();\nawait driver.wait(until.urlIs('http://localhost/litecart/admin/?app=orders&doc=orders'), 3000).catch(function(){\n    console.log('Orders');\n});\nawait driver.findElement(By.css('#doc-orders')).click();\nawait driver.findElement(By.css('#doc-order_statuses')).click();\n //check Pages and its children\n await driver.findElement(By.css('#app-pages')).click();\n await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=pages&doc=pages'), 3000).catch(function(){\n     console.log('Pages');\n });\n await driver.findElement(By.css('#doc-pages')).click();\n await driver.findElement(By.css('#doc-csv')).click();\n  //check Reports and its children\n  await driver.findElement(By.css('#app-reports')).click();\n  await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=reports&doc=monthly_sales'), 3000).catch(function(){\n      console.log('Reports');\n  });\n  await driver.findElement(By.css('#doc-monthly_sales')).click();\n  await driver.findElement(By.css('#doc-most_sold_products')).click();\n  await driver.findElement(By.css('#doc-most_shopping_customers')).click();\n  //check Settings and its children\n  await driver.findElement(By.css('#app-settings')).click();\n  await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=settings&doc=store_info'), 3000).catch(function(){\n      console.log('Settings');\n  });\n  await driver.findElement(By.css('#doc-store_info')).click();\n  await driver.findElement(By.css('#doc-defaults')).click();\n  await driver.findElement(By.css('#doc-email')).click();\n  await driver.findElement(By.css('#doc-images')).click();\n  await driver.findElement(By.css('#doc-advanced')).click();\n  await driver.findElement(By.css('#doc-security')).click();\n  //check Settings and its children\n  await driver.findElement(By.css('#app-slides')).click();\n  //check Tax and its children\n  await driver.findElement(By.css('#app-tax')).click();\n  await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=tax&doc=tax_rates'), 3000).catch(function(){\n      console.log('TAX');\n  });\n  await driver.findElement(By.css('#doc-tax_rates')).click();\n  await driver.findElement(By.css('#doc-tax_classes')).click();\n   //check Translations and its children\n   await driver.findElement(By.css('#app-translations')).click();\n   await driver.wait(until.urlIs('http://localhost/litecart/admin/?app=translations&doc=search'), 3000).catch(function(){\n       console.log('Translations');\n   });\n   await driver.findElement(By.css('#app-users')).click();\n   await driver.findElement(By.css('#app-vqmods')).click();",
             "err": {},
             "isRoot": false,
-            "uuid": "fe57a48c-fe19-401b-924b-37445599486a",
+            "uuid": "b7e32dc5-b7d7-476a-aa14-1f796081793a",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "fe57a48c-fe19-401b-924b-37445599486a"
+          "b7e32dc5-b7d7-476a-aa14-1f796081793a"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 16648,
+        "duration": 31362,
         "root": false,
         "rootEmpty": false,
-        "_timeout": 50000
+        "_timeout": 500000
       }
     ],
     "passes": [],
     "failures": [],
     "pending": [],
-    "skipped": [
-      "cc26acbb-a791-47cf-b9a2-f9660936abca"
-    ],
-    "duration": null,
+    "skipped": [],
+    "duration": 0,
     "root": true,
-    "rootEmpty": false,
+    "rootEmpty": true,
     "_timeout": 2000
   },
   "copyrightYear": 2018
