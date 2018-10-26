@@ -19,23 +19,16 @@ afterEach(function(){
 });
 
 it('Check Campaign Products stickers', async function(){
-    var product = await driver.findElements(By.css('#box-campaign-products > div > div > div'));
-    var sticker = await driver.findElements(By.css('#box-campaign-products > div > div > div > a > div.image-wrapper > div'))
-    assert.equal(product.length , sticker.length , 'There is no sticker, or there are to many'); 
-})
-it('Check Popular Products stickers', async function(){
-    var products = await driver.findElements(By.css('#box-popular-products .link'));
-    var stickers = await driver.findElements(By.css('#box-popular-products .sticker'));
-    console.log(products.length);
-    console.log(stickers.length);
-    assert.equal(products.length , stickers.length , 'There is no sticker, or there are to many');  
-})
-it('Check Popular Products stickers', async function(){
-    var products = await driver.findElements(By.css('#latest-products .link'));
-    var stickers = await driver.findElements(By.css('#latest-products .sticker'));
-    console.log(products.length);
-    console.log(stickers.length);
-    assert.equal(products.length , stickers.length , 'There is no sticker, or there are to many');  
+
+var products = await driver.findElements(By.css('.product'));
+await products.forEach(async function(element) {
+   let singleSticker = await element.findElements(By.css('.sticker')).catch(function(error){
+       console.log(error);
+   });
+  console.log(singleSticker.length);
+  assert.equal(singleSticker.length, 1, 'There is too many stickers or there is none');
+   
+});
 })
 
 });
