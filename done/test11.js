@@ -5,17 +5,17 @@ const webdriver = require('selenium-webdriver');
 const assert = require('chai').assert;
 var faker = require('faker');
 
-describe('Testing 10', function(){
+describe('Testing 11', function(){
 this.timeout(500000);
 
 beforeEach(async function(){
     driver = await new Builder().forBrowser('chrome').build();
     driver.get('http://localhost/litecart/');
-    await driver.wait(until.urlIs('http://localhost/litecart/'), 5000).catch(function(error){
+    await driver.wait(until.urlIs('http://localhost/litecart/en/'), 5000).catch(function(error){
         console.log(error);
     });
-    let signInButton = await driver.findElement(By.css("#default-menu li.account")).click();
-    let newCoustomerBtn = await driver.findElement(By.css('#default-menu .dropdown-menu li:nth-child(2) > a')).click();
+    let signInButton = await driver.findElement(By.css("#box-account-login > div > form > table > tbody > tr:nth-child(5) > td > a")).click();
+    // let newCoustomerBtn = await driver.findElement(By.css('#default-menu .dropdown-menu li:nth-child(2) > a')).click();
     
 });
 
@@ -25,50 +25,67 @@ afterEach(function(){
     
 });
 
-it('Testing if product page is correct', async function(){
+it('user registration form', async function(){
     const firstName = await faker.name.firstName();
     const email = await faker.internet.email();
 
-
+    // tax input
     let taxInput = await driver.wait(until.elementLocated(By.css('input[name=tax_id]')),5000);
     await taxInput.sendKeys(faker.random.number(10000000000));
+    // company input
     let companyInput = await driver.findElement(By.css('input[name=company]'));
     await companyInput.sendKeys(faker.company.companyName(0)); 
     //login=firstName
     let fistnameInput = await driver.findElement(By.css('input[name=firstname]'));
     await fistnameInput.sendKeys(firstName);
-
+    //country selection
+    let countryList = await driver.findElement(By.css('#create-account > div > form > table > tbody > tr:nth-child(5) > td:nth-child(1)'))
+    .click();
+     await driver.wait(until.elementLocated(By.css('body > span > span > span.select2-search.select2-search--dropdown > input')),5000);
+    let country = await driver.findElement(By.css('body > span > span > span.select2-search.select2-search--dropdown > input'))
+    await country.sendKeys("United States");
+    await country.sendKeys(Key.ENTER);
+    //last name
     let lastnameInput = await driver.findElement(By.css('input[name=lastname]'));
     await lastnameInput.sendKeys(faker.name.lastName());
+    // adres
     let adres1Input = await driver.findElement(By.css('input[name=address1]'));
     await adres1Input.sendKeys(faker.address.streetName());
     let adres2Input = await driver.findElement(By.css('input[name=address2]'));
     await adres2Input.sendKeys(faker.random.number(100));
+    // postal code
     let postalCodeInput = await driver.findElement(By.css('input[name=postcode]'));
-    
     await postalCodeInput.sendKeys(faker.address.zipCode());
+    // city
     let cityInput = await driver.findElement(By.css('input[name=city]'));
     await cityInput.sendKeys(faker.address.city(3));
-    let emailInput = await driver.findElement(By.css('#box-create-account > form > div:nth-child(7) > div.form-group.col-md-6.required > div > input'));
+    // email
+    let emailInput = await driver.findElement(By.css('#create-account > div > form > table > tbody > tr:nth-child(6) > td:nth-child(1) > input[type="email"]'));
     await emailInput.sendKeys(email);
-    let password1 = await driver.findElement(By.css('#box-create-account > form > div:nth-child(8) > div:nth-child(1) > div > input'));
+    // Phone number
+    let phoneNumber = await driver.findElement(By.css('input[name=phone]'));
+    await phoneNumber.sendKeys(`+1 ${faker.random.number(10000000000)}`);
+    // password
+    let password1 = await driver.findElement(By.css('#create-account > div > form > table > tbody > tr:nth-child(8) > td:nth-child(1) > input[type="password"]'));
     await password1.sendKeys('23styczen');
-    let password2 = await driver.findElement(By.css('#box-create-account > form > div:nth-child(8) > div:nth-child(2) > div > input'));
+    let password2 = await driver.findElement(By.css('#create-account > div > form > table > tbody > tr:nth-child(8) > td:nth-child(2) > input[type="password"]'));
     await password2.sendKeys('23styczen');
-    let createAccountBtn = await driver.findElement(By.css('button[name=create_account]')).click();
-    let signInButton = await driver.findElement(By.css("#default-menu li.account")).click();
-    let logOut = await driver.findElement(By.css("#default-menu > ul.nav.navbar-nav.navbar-right > li > ul > li:nth-child(3) > a")).click();
-    await driver.findElement(By.css("#default-menu li.account")).click();
-    let emailInput2 = await driver.findElement(By.css('#default-menu > ul.nav.navbar-nav.navbar-right > li > ul > li:nth-child(1) > form > div.form-group.required > div > input'));
-    await emailInput2.sendKeys(email);
-    let password = await driver.findElement(By.css('#default-menu > ul.nav.navbar-nav.navbar-right > li > ul > li:nth-child(1) > form > div:nth-child(4) > div > input'));
-    await password.sendKeys('23styczen');
-    await driver.findElement(By.css("#default-menu > ul.nav.navbar-nav.navbar-right > li > ul > li:nth-child(1) > form > div.btn-group.btn-block > button")).click();
-
-    //assertion at userName is equal to name from data generator
-    let logIcon= await driver.findElement(By.css("#default-menu > ul.nav.navbar-nav.navbar-right > li > a")).getText();
+    // create account button
+    let createAccountBtn = await driver.findElement(By.css('#create-account > div > form > table > tbody > tr:nth-child(9) > td > button')).click();
+    // logout btn
+    let logOut = await driver.findElement(By.css("#box-account > div > ul > li:nth-child(4) > a")).click();
     
-    assert.equal(logIcon,firstName, "user name is wrong, or is not logged")
+    // login again
+    let emailInput2 = await driver.findElement(By.css('#box-account-login > div > form > table > tbody > tr:nth-child(1) > td > input[type="text"]'));
+    await emailInput2.sendKeys(email);
+    let password = await driver.findElement(By.css('#box-account-login > div > form > table > tbody > tr:nth-child(2) > td > input[type="password"]'));
+    await password.sendKeys('23styczen');
+    await driver.findElement(By.css("#box-account-login > div > form > table > tbody > tr:nth-child(4) > td > span > button:nth-child(1)")).click();
+
+    //assertion at corntrol panel have buttton "logout", that means user have logged in second time
+    let loginInfo= await driver.findElement(By.css("#box-account > div > ul > li:nth-child(4) > a")).getText();
+    
+    assert.equal(loginInfo,'Logout', "user name is wrong, or is not logged")
     
 });
 
